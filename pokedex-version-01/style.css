@@ -72,24 +72,48 @@ body {
 
 /* Menú lateral */
 .menu {
-  width: 200px;
+  width: 120px;
   background-color: #1c1818;
   padding: 20px;
-  border-right: 1px solid #ddd;
   color: white;
-  min-width: 165px;
+  /*min-width: 165px;*/
   font-family: "Poppins";
 }
 
 .menu h3 {
   margin-bottom: 10px;
-  color: #e13535;
-  font-size: small;
+  color: #ffffff;
+  font-size:medium;
+  text-align: center;
 }
 
 .menu .filters {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.filter {
+  width: 70px;
+  padding: 2px 7px;
+  color: white; /* Texto en color blanco */
+  font-weight: bold;
+  font-size: x-small;
+  border-radius: 15px; /* Bordes redondeados */
+  text-align: center;
+  cursor: pointer; /* Cambiar el cursor al pasar por el tipo */
+  transition: transform 0.1s ease; /* Transición suave al hacer hover */
+  outline: 2px solid #ffffff;
+  margin: 0;
+}
+
+.filter:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
+}
+
+.filters input[type="checkbox"] {
+  display: none; /* Oculta los checkboxes */
 }
 
 .menu label {
@@ -105,18 +129,20 @@ input:checked {
 /* Sección principal - Pokedex */
 .pokedex {
   flex: 1;
-  padding: 25px 70px;
-  background-color: #292121;
+  padding: 25px 100px;
+  background-color: rgb(237, 219, 219);
+  background-image: url(/img/wallhaven-57eey1.png);
+  background-blend-mode: overlay; /* Mezcla el color de fondo con la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed; /* Fija la imagen al fondo, sin desplazarse */
   background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-  background-position: top; /* Centra la imagen en el contenedor */
+  background-position:right; /* Centra la imagen en el contenedor */
   font-family: "Rubik";
 }
 
 .card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
   gap: 20px;
 }
 
@@ -128,21 +154,21 @@ input:checked {
   background-size: cover;
   background-position: bottom;
   border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 2px 5px rgba(114, 107, 107, 0.9);
   text-align: center;
   overflow: hidden; /* Para evitar que la imagen se salga de la tarjeta */
   position: relative;
   transition: transform 0.1s ease-in-out;
-  border: 4px solid #0f0e0e;
+  /*border: 4px solid #0f0e0e;*/
+  max-height: 170px;
 }
 .card:hover {
   transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
-  border: 4px solid #ffffff;
+  outline: 4px solid #ffffff;
 }
 
 .card img {
-  width: 150px;
-  height: 150px;
+
   transition: transform 0.1s ease-in-out; /* Transición suave al hacer hover */
 }
 .card:hover img {

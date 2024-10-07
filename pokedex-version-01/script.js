@@ -186,30 +186,35 @@ const pokemons = [
     });
   }
   
-  // Filtrar pokémon por tipo seleccionado
-  function filterPokemons() {
-    const checkboxes = document.querySelectorAll(".filters input[type='checkbox']");
-    const selectedTypes = Array.from(checkboxes)
-      .filter((checkbox) => checkbox.checked)
-      .map((checkbox) => checkbox.value);
-  
-    if (selectedTypes.length === 0) {
-      loadCards(pokemons); // Si no hay tipos seleccionados, mostrar todos
-    } else {
-      const filteredPokemons = pokemons.filter((pokemon) =>
-        pokemon.types.some((type) => selectedTypes.includes(type))
-      );
-      loadCards(filteredPokemons);
-    }
+// Filtrar pokémon por tipos seleccionados
+function filterPokemons() {
+  const checkboxes = document.querySelectorAll(".filters input[type='checkbox']");
+  const selectedTypes = Array.from(checkboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+
+  if (selectedTypes.length === 0) {
+    loadCards(pokemons); // Si no hay tipos seleccionados, mostrar todos
+  } else {
+    const filteredPokemons = pokemons.filter((pokemon) =>
+      pokemon.types.some((type) => selectedTypes.includes(type))
+    );
+    loadCards(filteredPokemons);
   }
-  
-  // Escuchar cambios en los checkboxes de filtros
-  document.querySelectorAll(".filters input[type='checkbox']").forEach((checkbox) => {
-    checkbox.addEventListener("change", filterPokemons);
+}
+
+// Escuchar los clics en los tipos de Pokémon y simular el check
+document.querySelectorAll(".filter").forEach((filterElement) => {
+  filterElement.addEventListener("click", (event) => {
+    const checkbox = filterElement.querySelector("input[type='checkbox']");
+    checkbox.checked = !checkbox.checked; // Alternar el estado del checkbox
+    filterElement.classList.toggle("active"); // Clase para estilos activos
+    filterPokemons(); // Aplicar el filtro
   });
-  
-  // Cargar todos los pokémon al inicio
-  loadCards(pokemons);
+});
+
+// Cargar todos los pokémon al inicio
+loadCards(pokemons);
   
 
   
