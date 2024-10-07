@@ -11,10 +11,11 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh;*/
 }
+
 
 /* Header */
 .header {
@@ -31,7 +32,6 @@ body {
 .logo img {
   width: 150px;
 }
-
 .logo img:hover {
   cursor: pointer;
 } 
@@ -41,18 +41,15 @@ body {
   align-items: center;
   gap: 10px;
 }
-
 .search input {
   padding: 5px 10px;
   width: 205px;
   border: none;
   border-radius: 5px;
 }
-
 .search input:focus {
   color: #e13535;
 }
-
 .search .btn-search {
   background-color: #e13535;
   border-radius: 15px;
@@ -61,13 +58,12 @@ body {
   padding: 5px 8px;
   cursor: pointer;
 }
-
-
 .btn-search img{
   margin: 0;
   padding: 0;
   width: 10px;
 }
+
 /* Contenedor principal */
 .container {
   display: flex;
@@ -83,58 +79,61 @@ body {
   /*min-width: 165px;*/
   font-family: "Poppins";
 }
-
+/*
 .menu h3 {
   margin-bottom: 10px;
   color: #ffffff;
   font-size:medium;
   text-align: center;
+}*/
+.menu label {
+  margin-bottom: 10px;
+  font-size:small;
 }
-
 .menu .filters {
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: center;
 }
-
+/* Estilo base de los tipos */
 .menu .filter {
   width: 60px;
   padding: 2px 7px;
   color: white; /* Texto en color blanco */
   font-weight: bold;
-  font-size: xx-small;
+  font-size: 10px; /* Tamaño de la fuente más pequeño */
   border-radius: 6px; /* Bordes redondeados */
   text-align: center;
   cursor: pointer; /* Cambiar el cursor al pasar por el tipo */
-  transition: transform 0.1s ease, background-color 0.3s ease; /* Transición suave al hacer hover */
-  outline: 2px solid #ffffff;
-  margin: 0;
+  transition: transform 0.1s ease, background-color 0.3s ease, outline-color 0.3s ease; /* Añadir transición */
+  /*outline: 2px solid #ffffff;  Borde inicial blanco */
+  margin: 0; /* Elimina cualquier margen */
 }
-
+/* Al hacer hover, aclarar el fondo */
 .filter:hover {
   transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
+  background-color: rgba(255, 255, 255); /* Aclarar fondo cuando está seleccionado */
+  background: linear-gradient(180deg, #ffffff 50%, #ffffff 50%);
+  color: #e13535;
 }
-
-.filters input[type="checkbox"] {
-  display: none; /* Oculta los checkboxes */
-}
-
-.menu label {
-  margin-bottom: 10px;
-  font-size:small;
-}
-
-input:checked {
+/* Cuando el checkbox está marcado, aclarar el fondo y cambiar el outline */
+.menu .filter:has(input:checked){
+  background-color: rgba(255, 255, 255); /* Aclarar fondo cuando está seleccionado */
+  background: linear-gradient(180deg, #ffffff 50%, #ffffff 50%);
+  outline: 2px solid #e13535;
   accent-color: #e13535;
+  color: #e13535;
 }
-
+.filters input[type="checkbox"] {
+  display: none;/*  Oculta los checkboxes*/ 
+}
 
 /* Sección principal - Pokedex */
 .pokedex {
   flex: 1;
   padding: 25px 100px;
-  background-color: rgb(237, 219, 219);
+  background-color: rgb(254, 241, 241);
   background-image: url(/pokedex-version-01/img/wallhaven-57eey1.png);
   background-blend-mode: overlay; /* Mezcla el color de fondo con la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -143,13 +142,11 @@ input:checked {
   background-position:right; /* Centra la imagen en el contenedor */
   font-family: "Rubik";
 }
-
 .card-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
   gap: 20px;
 }
-
 /* Estilo de las tarjetas */
 .card {
   background-image: url(https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e);
@@ -168,10 +165,9 @@ input:checked {
 }
 .card:hover {
   transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
-  outline: 4px solid #ffffff;
+  outline: 3px solid #ffffff;
   cursor: pointer; /* Cambiar el cursor al pasar por el tipo */
 }
-
 .card img {
 
   transition: transform 0.1s ease-in-out; /* Transición suave al hacer hover */
@@ -179,31 +175,26 @@ input:checked {
 .card:hover img {
   transform: scale(1.1); /* Aumenta el tamaño de la imagen al hacer hover */
 }
-
-
 .card h3 {
   padding-top: 8px;
-  background-color: rgba(255, 255, 255, 0.7);
-  color: #1c1818;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
   font-size: small;
 }
-
 .card:hover h3 {
-  background-color: #1c1818; /* Cambiar color de fondo del h3 */
-  color: #fff; /* Cambiar color del texto del h3 */
+  background-color: #ffffff; /* Cambiar color de fondo del h3 */
+  color: #e13535; /* Cambiar color del texto del h3 */
   margin-bottom: -1px; /* Superponer ligeramente con el .card-types */
 
 }
-
 /* Cambiar el color de fondo del contenedor de tipos al hacer hover en la tarjeta */
 .card:hover .card-types {
-  background-color: #1c1818; /* Cambiar color de fondo de los tipos */
+  background-color: #ffffff; /* Cambiar color de fondo de los tipos */
   padding-bottom: 11px; /* Superponer ligeramente con el .card-types */
 
 }
-
 .card-types {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -211,13 +202,13 @@ input:checked {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
 .card-types span {
   padding: 5px 10px;
   border-radius: 5px;
   color: white;
   font-size: x-small;
 }
+
 
 .type-fire {
   background-color: #ff7402;
