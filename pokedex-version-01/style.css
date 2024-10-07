@@ -32,6 +32,10 @@ body {
   width: 150px;
 }
 
+.logo img:hover {
+  cursor: pointer;
+} 
+
 .search {
   display: flex;
   align-items: center;
@@ -90,20 +94,20 @@ body {
 .menu .filters {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
-.filter {
-  width: 70px;
+.menu .filter {
+  width: 60px;
   padding: 2px 7px;
   color: white; /* Texto en color blanco */
   font-weight: bold;
-  font-size: x-small;
-  border-radius: 15px; /* Bordes redondeados */
+  font-size: xx-small;
+  border-radius: 6px; /* Bordes redondeados */
   text-align: center;
   cursor: pointer; /* Cambiar el cursor al pasar por el tipo */
-  transition: transform 0.1s ease; /* Transición suave al hacer hover */
+  transition: transform 0.1s ease, background-color 0.3s ease; /* Transición suave al hacer hover */
   outline: 2px solid #ffffff;
   margin: 0;
 }
@@ -131,7 +135,7 @@ input:checked {
   flex: 1;
   padding: 25px 100px;
   background-color: rgb(237, 219, 219);
-  background-image: url(/img/wallhaven-57eey1.png);
+  background-image: url(/pokedex-version-01/img/wallhaven-57eey1.png);
   background-blend-mode: overlay; /* Mezcla el color de fondo con la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed; /* Fija la imagen al fondo, sin desplazarse */
@@ -165,6 +169,7 @@ input:checked {
 .card:hover {
   transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
   outline: 4px solid #ffffff;
+  cursor: pointer; /* Cambiar el cursor al pasar por el tipo */
 }
 
 .card img {
