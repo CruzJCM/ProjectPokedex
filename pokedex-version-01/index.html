@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex Primera Generación</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="img/pokedex-logo.png" alt="Logo Pokedex" />
+      </div>
+      <div class="search">
+        <input
+          type="search"
+          id="search"
+          placeholder="Buscar nombre de Pokémon"
+        />
+        <button class="btn-search">
+          <img src="/img/icons8-search-50.png" alt="Buscar">
+        </button>
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="menu">
+        <h3>TYPE FILTER</h3>
+        <div class="filters">
+          <label><input type="checkbox" value="fire" /> Fuego</label>
+          <label><input type="checkbox" value="water" /> Agua</label>
+          <label><input type="checkbox" value="grass" /> Planta</label>
+          <label><input type="checkbox" value="electric" /> Eléctrico</label>
+          <label><input type="checkbox" value="poison" /> Veneno</label>
+          <label><input type="checkbox" value="bug" /> Bicho</label>
+          <label><input type="checkbox" value="flying" /> Volador</label>
+          <label><input type="checkbox" value="ground" /> Tierra</label>
+          <label><input type="checkbox" value="psychic" /> Psíquico</label>
+          <label><input type="checkbox" value="rock" /> Roca</label>
+          <label><input type="checkbox" value="ice" /> Hielo</label>
+          <label><input type="checkbox" value="dragon" /> Dragón</label>
+          <label><input type="checkbox" value="dark" /> Siniestro</label>
+          <label><input type="checkbox" value="steel" /> Acero</label>
+          <label><input type="checkbox" value="fairy" /> Hada</label>
+          <label><input type="checkbox" value="fighting" /> Lucha</label>
+          <label><input type="checkbox" value="ghost" /> Fantasma</label>
+          <label><input type="checkbox" value="normal" /> Normal</label>
+
+          <!-- Agrega más tipos si lo necesitas -->
+        </div>
+      </aside>
+
+      <main class="pokedex">
+        <div id="card-list" class="card-list">
+          <!-- Aquí se mostrarán las tarjetas de los Pokémon -->
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
