@@ -49,6 +49,10 @@ body {
   color: #e13535;
   outline: 2px solid #e13535;
 }
+/* Ocultar la X en navegadores que la generan automáticamente */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
 
 .btn-clear {
   border: none;
@@ -181,6 +185,7 @@ body {
 }
 
 .card {
+  position: relative; /* Para que los elementos con position: absolute se posicionen respecto a este contenedor */
   background-image: url(https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e);
   background-blend-mode: overlay;
   background-color: rgba(255, 255, 255, 0.2);
@@ -190,10 +195,31 @@ body {
   box-shadow: 0 2px 5px rgba(58, 57, 57, 0.9);
   text-align: center;
   overflow: hidden;
-  position: relative;
   transition: transform 0.1s ease-in-out;
-  height: 180px;
-  min-width: 150px;
+  max-height: 180px;
+}
+
+/* Estilo del número de la Pokédex */
+.card-number {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centrar el número dentro del contenedor */
+  font-size: 46px; /* Tamaño grande para que sobresalga */
+  color: rgba(255, 255, 255, 0.6); /* Color blanco con transparencia */
+  font-weight: bold;
+  z-index: 1; /* Colocarlo detrás de la imagen */
+  pointer-events: none; /* Para que no interfiera con los eventos de la tarjeta */
+}
+.card:hover .card-number {
+  color: #e13535cc;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9); /* Delineado de 1px en negro */
+}
+.card:hover img {
+  z-index: 0;
 }
 .card:hover {
   transform: scale(1.05);
@@ -201,7 +227,10 @@ body {
   outline-offset: -1px;
   cursor: pointer;
 }
+/* Asegurarse que la imagen esté por encima del número */
 .card img {
+  position: relative;
+  z-index: 2;
   transition: transform 0.1s ease-in-out;
 }
 .card:hover img {
@@ -222,11 +251,6 @@ body {
   padding-top: 15px;
   color: #ffffff;
   font-size: small;
-}
-.card:hover h3 {
-  background-color: #ffffff;
-  color: #e13535;
-  margin-bottom: -1px;
 }
 .card:hover .card-types {
   background-color: #ffffff;
@@ -303,4 +327,35 @@ body {
 }
 .type-normal {
   background-color: #a4acaf;
+}
+
+
+/* Contenedor del mensaje */
+.moving-message {
+  flex: 1; /* Ocupar el espacio entre el logo y el buscador */
+  overflow: hidden; /* Oculta el texto cuando sale del área visible */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  margin: 0 25px;
+}
+
+/* Estilo del texto en movimiento */
+.moving-message #message {
+  display: inline-block;
+  animation: move-left 12s linear infinite; /* Animación de movimiento hacia la izquierda */
+  font-size: 14px;
+  color: white;
+}
+
+span span{
+  color: #e13535;
+}
+
+/* Animación del movimiento */
+@keyframes move-left {
+  from {
+    transform: translateX(150%); /* Comienza fuera del área visible */
+  }
+  to {
+    transform: translateX(-100%); /* Termina fuera del área por la izquierda */
+  }
 }
