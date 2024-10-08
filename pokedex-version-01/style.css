@@ -49,7 +49,6 @@ body {
   color: #e13535;
   outline: 2px solid #e13535;
 }
-/* Ocultar la X en navegadores que la generan automáticamente */
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
@@ -90,11 +89,39 @@ input[type="search"]::-webkit-search-cancel-button {
   transform: scale(1.2);
 }
 
+.moving-message {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 25px;
+}
+.moving-message #message {
+  display: inline-block;
+  animation: move-left 12s linear infinite;
+  font-size: 14px;
+  color: white;
+}
+
+span span{
+  color: #e13535;
+}
+
+@keyframes move-left {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
 .container {
   display: flex;
   flex: 1;
   min-height: 100vh;
 }
+
 
 /* MENU */
 .menu {
@@ -162,6 +189,7 @@ input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
 
+/* POKEDEX */
 .pokedex {
   flex: 1;
   padding: 25px 100px;
@@ -199,7 +227,6 @@ input[type="search"]::-webkit-search-cancel-button {
   max-height: 180px;
 }
 
-/* Estilo del número de la Pokédex */
 .card-number {
   position: absolute;
   top: 30%;
@@ -227,7 +254,6 @@ input[type="search"]::-webkit-search-cancel-button {
   outline-offset: -1px;
   cursor: pointer;
 }
-/* Asegurarse que la imagen esté por encima del número */
 .card img {
   position: relative;
   z-index: 2;
@@ -327,35 +353,4 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 .type-normal {
   background-color: #a4acaf;
-}
-
-
-/* Contenedor del mensaje */
-.moving-message {
-  flex: 1; /* Ocupar el espacio entre el logo y el buscador */
-  overflow: hidden; /* Oculta el texto cuando sale del área visible */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  margin: 0 25px;
-}
-
-/* Estilo del texto en movimiento */
-.moving-message #message {
-  display: inline-block;
-  animation: move-left 12s linear infinite; /* Animación de movimiento hacia la izquierda */
-  font-size: 14px;
-  color: white;
-}
-
-span span{
-  color: #e13535;
-}
-
-/* Animación del movimiento */
-@keyframes move-left {
-  from {
-    transform: translateX(150%); /* Comienza fuera del área visible */
-  }
-  to {
-    transform: translateX(-100%); /* Termina fuera del área por la izquierda */
-  }
 }
