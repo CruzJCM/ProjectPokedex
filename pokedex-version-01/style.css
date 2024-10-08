@@ -1,3 +1,4 @@
+/* FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
@@ -12,7 +13,7 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Nav */
+/* NAV */
 .header {
   position: fixed;
   width: 100%;
@@ -82,26 +83,23 @@ body {
 }
 
 .btn-search:hover img {
-  transform: scale(1.2); /* Aumenta ligeramente el tamaño en hover */
+  transform: scale(1.2);
 }
 
-/* Principal container */
 .container {
   display: flex;
   flex: 1;
   min-height: 100vh;
 }
 
-/* Menú lateral */
+/* MENU */
 .menu {
   width: 120px;
   padding: 20px;
   margin-top: 50px;
-  position: fixed; /* Mantiene el menú en su lugar cuando haces scroll */
-  max-height: calc(
-    100vh - 50px
-  ); /* Limita la altura del menú al 100% de la ventana menos el espacio reservado (70px) */
-  overflow-y: auto; /* Habilita el scroll vertical dentro del menú */
+  position: fixed;
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
   background-color: #0f0e0e;
   color: white;
   font-family: "Poppins";
@@ -118,7 +116,6 @@ body {
   gap: 8px;
   align-items: center;
 }
-/* Estilo base de los tipos */
 .menu .filter {
   width: 60px;
   padding: 2px 7px;
@@ -130,22 +127,21 @@ body {
   text-align: center;
   cursor: pointer;
   transition: transform 0.1s ease, background-color 0.3s ease,
-    outline-color 0.3s ease; /* Añadir transición */
+    outline-color 0.3s ease;
 }
-/* Personalización de la barra de desplazamiento en WebKit Browsers (Chrome, Safari, Edge) */
 .menu::-webkit-scrollbar {
-  width: 4px; /* Ancho de la barra de desplazamiento */
+  width: 4px;
 }
 .menu::-webkit-scrollbar-thumb {
-  background-color: #ffffff; /* Color del 'thumb' */
-  border-radius: 5px; /* Bordes redondeados */
+  background-color: #ffffff;
+  border-radius: 5px;
 }
 .menu::-webkit-scrollbar-track {
-  background-color: #0f0e0e; /* Color de fondo del track */
+  background-color: #0f0e0e;
 }
 
 .filter:hover {
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
+  transform: scale(1.1);
   background-color: rgba(255, 255, 255);
   background: linear-gradient(180deg, #ffffff 50%, #ffffff 50%);
   color: #e13535;
@@ -159,25 +155,23 @@ body {
 }
 
 .filters input[type="checkbox"] {
-  display: none; /*  Oculta los checkboxes*/
+  display: none;
 }
 
-/* Sección principal - Pokedex */
 .pokedex {
   flex: 1;
-  padding: 25px 160px;
+  padding: 25px 100px;
   margin-left: 100px;
   margin-top: 50px;
   background-color: rgb(227, 173, 173);
   background-image: url(/pokedex-version-01/img/wallhaven-57eey1.png);
-  background-blend-mode: overlay; /* Mezcla el color de fondo con la imagen */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-attachment: fixed; /* Fija la imagen al fondo, sin desplazarse */
-  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-  background-position: left 60px center; /* Centra la imagen en el contenedor */
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: left 60px center;
   font-family: "Rubik";
   overflow-y: auto;
-  /*min-height: 100vh - 50px;*/
 }
 
 .card-list {
@@ -188,30 +182,30 @@ body {
 
 .card {
   background-image: url(https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e);
-  background-blend-mode: overlay; /* Mezcla el color de fondo con la imagen */
+  background-blend-mode: overlay;
   background-color: rgba(255, 255, 255, 0.2);
   background-size: cover;
   background-position: bottom;
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(58, 57, 57, 0.9);
   text-align: center;
-  overflow: hidden; /* Para evitar que la imagen se salga de la tarjeta */
+  overflow: hidden;
   position: relative;
   transition: transform 0.1s ease-in-out;
   height: 180px;
   min-width: 150px;
 }
 .card:hover {
-  transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
+  transform: scale(1.05);
   outline: 3px solid #ffffff;
   outline-offset: -1px;
   cursor: pointer;
 }
 .card img {
-  transition: transform 0.1s ease-in-out; /* Transición suave al hacer hover */
+  transition: transform 0.1s ease-in-out;
 }
 .card:hover img {
-  transform: scale(1.1); /* Aumenta el tamaño de la imagen al hacer hover */
+  transform: scale(1.1);
 }
 .card:hover h3 {
   background-color: #ffffff;
@@ -235,8 +229,8 @@ body {
   margin-bottom: -1px;
 }
 .card:hover .card-types {
-  background-color: #ffffff; /* Cambiar color de fondo de los tipos */
-  padding-bottom: 111px; /* Superponer ligeramente con el .card-types */
+  background-color: #ffffff;
+  padding-bottom: 111px;
 }
 
 .card-types {

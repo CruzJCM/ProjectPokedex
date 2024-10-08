@@ -3,27 +3,31 @@ let pokemons = [];
 
 // Obtener Pokémon desde la PokeAPI
 async function fetchPokemons() {
-  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=809'); // Obtener primeros 151 Pokémon
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=809"); // Obtener primeros 151 Pokémon
   const data = await response.json(); // Convertir la respuesta a JSON
-  
+
   // Convertir los resultados a una lista de Pokémon
-  pokemons = await Promise.all(data.results.map(async (pokemon) => {
-    const pokemonData = await fetch(pokemon.url); // Obtener datos de cada Pokémon
-    const pokemonDetails = await pokemonData.json();
-    
-    return {
-      name: pokemonDetails.name,
-      img: pokemonDetails.sprites.front_default, // Usar la imagen de sprite
-      types: pokemonDetails.types.map(typeInfo => typeInfo.type.name) // Obtener los tipos del Pokémon
-    };
-  }));
+  pokemons = await Promise.all(
+    data.results.map(async (pokemon) => {
+      const pokemonData = await fetch(pokemon.url); // Obtener datos de cada Pokémon
+      const pokemonDetails = await pokemonData.json();
+
+      return {
+        name: pokemonDetails.name,
+        img: pokemonDetails.sprites.front_default, // Usar la imagen de sprite
+        types: pokemonDetails.types.map((typeInfo) => typeInfo.type.name), // Obtener los tipos del Pokémon
+      };
+    })
+  );
 
   loadCards(pokemons); // Cargar todos los Pokémon en la tarjeta
 }
 
 // Función para deseleccionar todos los tipos
 function clearFilters() {
-  const checkboxes = document.querySelectorAll(".filters input[type='checkbox']");
+  const checkboxes = document.querySelectorAll(
+    ".filters input[type='checkbox']"
+  );
   checkboxes.forEach((checkbox) => {
     checkbox.checked = false; // Deselecciona el checkbox
   });
@@ -32,8 +36,8 @@ function clearFilters() {
 // Función de búsqueda por nombre de Pokémon
 function searchPokemon() {
   const searchInput = document.getElementById("search").value.toLowerCase(); // Obtiene el valor del input y lo pasa a minúsculas
-  const filteredPokemons = pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchInput) // Filtra los Pokémon cuyo nombre coincida con la búsqueda
+  const filteredPokemons = pokemons.filter(
+    (pokemon) => pokemon.name.toLowerCase().includes(searchInput) // Filtra los Pokémon cuyo nombre coincida con la búsqueda
   );
 
   loadCards(filteredPokemons); // Muestra solo los Pokémon filtrados
@@ -109,7 +113,9 @@ function loadCards(pokemons) {
 
 // Filtrar Pokémon por tipos seleccionados
 function filterPokemons() {
-  const checkboxes = document.querySelectorAll(".filters input[type='checkbox']");
+  const checkboxes = document.querySelectorAll(
+    ".filters input[type='checkbox']"
+  );
   const selectedTypes = Array.from(checkboxes)
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => checkbox.value);
