@@ -153,6 +153,39 @@ const pokemons = [
   // Agrega más pokémon con sus tipos
 ];
 
+// Función para deseleccionar todos los tipos
+function clearFilters() {
+  const checkboxes = document.querySelectorAll(".filters input[type='checkbox']");
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = false; // Deselecciona el checkbox
+  });
+}
+
+// Función de búsqueda por nombre de Pokémon
+function searchPokemon() {
+  const searchInput = document.getElementById("search").value.toLowerCase(); // Obtiene el valor del input y lo pasa a minúsculas
+  const filteredPokemons = pokemons.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchInput) // Filtra los Pokémon cuyo nombre coincida con la búsqueda
+  );
+
+  loadCards(filteredPokemons); // Muestra solo los Pokémon filtrados
+}
+
+// Ejecutar la búsqueda cuando se hace clic en el botón de búsqueda
+document.querySelector(".btn-search").addEventListener("click", () => {
+  clearFilters(); // Limpiar los tipos seleccionados
+  searchPokemon(); // Ejecuta la búsqueda
+});
+
+// Ejecutar la búsqueda cuando se presiona Enter en el campo de búsqueda
+document.getElementById("search").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    clearFilters(); // Limpiar los tipos seleccionados
+    searchPokemon(); // Ejecuta la búsqueda al presionar Enter
+  }
+});
+
+
 // Cargar las tarjetas de todos los pokémon
 function loadCards(pokemons) {
   const cardList = document.getElementById("card-list");
@@ -226,6 +259,8 @@ document.querySelectorAll(".filter").forEach((filterElement) => {
     filterPokemons(); // Aplicar el filtro
   });
 });
+
+
 
 // Cargar todos los pokémon al inicio
 loadCards(pokemons);
