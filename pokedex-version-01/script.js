@@ -185,6 +185,15 @@ document.getElementById("search").addEventListener("keydown", (event) => {
   }
 });
 
+// Función para restablecer la búsqueda y mostrar todos los Pokémon
+function clearSearch() {
+  document.getElementById("search").value = ""; // Limpia el input de búsqueda
+  loadCards(pokemons); // Vuelve a cargar todos los Pokémon
+}
+
+// Escuchar el evento de clic en el botón "Clear"
+document.querySelector(".btn-clear").addEventListener("click", clearSearch);
+
 
 // Cargar las tarjetas de todos los pokémon
 function loadCards(pokemons) {

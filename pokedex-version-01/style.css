@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
   margin: 0;
@@ -8,78 +7,101 @@
   box-sizing: border-box;
 }
 
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
 }
 
-
 /* Nav */
 .header {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0f0e0e;
   color: white;
-  position: relative;
   z-index: 10;
   padding: 10px 20px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
 }
-
 
 .logo img {
   width: 150px;
 }
 .logo img:hover {
   cursor: pointer;
-} 
-
+}
 
 .search {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 .search input {
   padding: 5px 10px;
   width: 205px;
   border: none;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .search input:focus {
   color: #e13535;
   outline: 2px solid #e13535;
 }
 
+.btn-clear {
+  border: none;
+  padding: 4px 6px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: xx-small;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-clear:hover {
+  color: #e13535;
+  transform: scale(1.1);
+}
 
 .btn-search {
   background-color: #e13535;
   color: white;
-  padding: 5px 8px;
-  border-radius: 15px;
+  padding: 5px 10px;
+  padding-right: 12px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   border: none;
   cursor: pointer;
 }
-.btn-search img{
+.btn-search img {
   margin: 0;
   padding: 0;
   width: 10px;
 }
 
+.btn-search:hover img {
+  transform: scale(1.2); /* Aumenta ligeramente el tamaño en hover */
+}
 
 /* Principal container */
 .container {
   display: flex;
   flex: 1;
+  min-height: 100vh;
 }
-
 
 /* Menú lateral */
 .menu {
   width: 120px;
   padding: 20px;
+  margin-top: 50px;
+  position: fixed; /* Mantiene el menú en su lugar cuando haces scroll */
+  max-height: calc(
+    100vh - 50px
+  ); /* Limita la altura del menú al 100% de la ventana menos el espacio reservado (70px) */
+  overflow-y: auto; /* Habilita el scroll vertical dentro del menú */
   background-color: #0f0e0e;
   color: white;
   font-family: "Poppins";
@@ -88,7 +110,7 @@ body {
 }
 .menu label {
   margin-bottom: 10px;
-  font-size:small;
+  font-size: small;
 }
 .menu .filters {
   display: flex;
@@ -107,9 +129,20 @@ body {
   border-radius: 6px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.1s ease, background-color 0.3s ease, outline-color 0.3s ease; /* Añadir transición */
+  transition: transform 0.1s ease, background-color 0.3s ease,
+    outline-color 0.3s ease; /* Añadir transición */
 }
-
+/* Personalización de la barra de desplazamiento en WebKit Browsers (Chrome, Safari, Edge) */
+.menu::-webkit-scrollbar {
+  width: 4px; /* Ancho de la barra de desplazamiento */
+}
+.menu::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* Color del 'thumb' */
+  border-radius: 5px; /* Bordes redondeados */
+}
+.menu::-webkit-scrollbar-track {
+  background-color: #0f0e0e; /* Color de fondo del track */
+}
 
 .filter:hover {
   transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
@@ -117,7 +150,7 @@ body {
   background: linear-gradient(180deg, #ffffff 50%, #ffffff 50%);
   color: #e13535;
 }
-.filter:has(input:checked){
+.filter:has(input:checked) {
   background-color: rgba(255, 255, 255);
   background: linear-gradient(180deg, #ffffff 50%, #ffffff 50%);
   outline: 2px solid #e13535;
@@ -125,33 +158,33 @@ body {
   color: #e13535;
 }
 
-
 .filters input[type="checkbox"] {
-  display: none;/*  Oculta los checkboxes*/ 
+  display: none; /*  Oculta los checkboxes*/
 }
-
 
 /* Sección principal - Pokedex */
 .pokedex {
   flex: 1;
   padding: 25px 100px;
+  margin-left: 120px;
+  margin-top: 50px;
   background-color: rgb(227, 173, 173);
   background-image: url(/pokedex-version-01/img/wallhaven-57eey1.png);
   background-blend-mode: overlay; /* Mezcla el color de fondo con la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed; /* Fija la imagen al fondo, sin desplazarse */
   background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-  background-position:left 60px center; /* Centra la imagen en el contenedor */
+  background-position: left 60px center; /* Centra la imagen en el contenedor */
   font-family: "Rubik";
+  overflow-y: auto;
+  /*min-height: 100vh - 50px;*/
 }
-
 
 .card-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
   gap: 20px;
 }
-
 
 .card {
   background-image: url(https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e);
@@ -183,9 +216,7 @@ body {
   background-color: #ffffff;
   color: #e13535;
   margin-bottom: -1px;
-
 }
-
 
 .card-info {
   background-color: rgba(5, 5, 5, 0.7);
@@ -200,14 +231,11 @@ body {
   background-color: #ffffff;
   color: #e13535;
   margin-bottom: -1px;
-
 }
 .card:hover .card-types {
   background-color: #ffffff; /* Cambiar color de fondo de los tipos */
   padding-bottom: 11px; /* Superponer ligeramente con el .card-types */
-
 }
-
 
 .card-types {
   display: flex;
@@ -223,7 +251,6 @@ body {
   color: white;
   font-size: x-small;
 }
-
 
 .type-fire {
   background-color: #ff7402;
