@@ -23,12 +23,12 @@ body {
   background-color: #0f0e0e;
   color: white;
   z-index: 10;
-  padding: 10px 20px;
+  padding: 15px 30px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
 }
 
 .logo img {
-  width: 150px;
+  width: 280px;
 }
 .logo img:hover {
   cursor: pointer;
@@ -37,13 +37,16 @@ body {
 .search {
   display: flex;
   align-items: center;
+  margin-right: 50px;
 }
 .search input {
-  padding: 5px 10px;
+  min-width: 300px;
+  padding: 11px 10px;
   width: 205px;
   border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  font-size: large;
 }
 .search input:focus {
   color: #e13535;
@@ -55,11 +58,11 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .btn-clear {
   border: none;
-  padding: 4px 6px;
+  padding: 6px 10px;
   margin-right: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: xx-small;
+  font-size: small;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -72,8 +75,8 @@ input[type="search"]::-webkit-search-cancel-button {
 .btn-search {
   background-color: #e13535;
   color: white;
-  padding: 5px 10px;
-  padding-right: 12px;
+  padding: 12px 13px;
+  padding-right: 15px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   border: none;
@@ -82,7 +85,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .btn-search img {
   margin: 0;
   padding: 0;
-  width: 10px;
+  width: 15px;
 }
 
 .btn-search:hover img {
@@ -98,7 +101,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .moving-message #message {
   display: inline-block;
   animation: move-left 12s linear infinite;
-  font-size: 14px;
+  font-size: large;
   color: white;
 }
 
@@ -125,9 +128,11 @@ span span{
 
 /* MENU */
 .menu {
-  width: 120px;
-  padding: 20px;
-  margin-top: 50px;
+  width: 180px;
+  padding: 0 100px;
+  padding-top: 30px;
+  padding-bottom: 80px;
+  margin-top: 84px;
   position: fixed;
   max-height: calc(100vh - 50px);
   overflow-y: auto;
@@ -144,21 +149,22 @@ span span{
 .menu .filters {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
 }
 .menu .filter {
-  width: 60px;
-  padding: 2px 7px;
+  width: 100px;
+  padding: 5px;
   margin: 0;
   color: white;
   font-weight: bold;
-  font-size: 10px;
+  font-size:large;
   border-radius: 6px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.1s ease, background-color 0.3s ease,
     outline-color 0.3s ease;
+  align-items: center;
 }
 .menu::-webkit-scrollbar {
   width: 4px;
@@ -192,11 +198,11 @@ span span{
 /* POKEDEX */
 .pokedex {
   flex: 1;
-  padding: 25px 100px;
-  margin-left: 100px;
-  margin-top: 50px;
+  padding: 50px 150px;
+  margin-left: 200px;
+  margin-top: 84px;
   background-color: rgb(227, 173, 173);
-  background-image: url(/pokedex-version-01/img/wallhaven-57eey1.png);
+  background-image: url(/img/wallhaven-57eey1.png);
   background-blend-mode: overlay;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -208,8 +214,8 @@ span span{
 
 .card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 .card {
@@ -224,7 +230,10 @@ span span{
   text-align: center;
   overflow: hidden;
   transition: transform 0.1s ease-in-out;
-  max-height: 180px;
+  max-height: 380px;
+  min-height: 350px;
+  min-width: 260px;
+  max-width: 260px;
 }
 
 .card-number {
@@ -235,7 +244,7 @@ span span{
     -50%,
     -50%
   ); /* Centrar el número dentro del contenedor */
-  font-size: 46px; /* Tamaño grande para que sobresalga */
+  font-size: 90px; /* Tamaño grande para que sobresalga */
   color: rgba(255, 255, 255, 0.6); /* Color blanco con transparencia */
   font-weight: bold;
   z-index: 1; /* Colocarlo detrás de la imagen */
@@ -250,8 +259,8 @@ span span{
 }
 .card:hover {
   transform: scale(1.05);
-  outline: 3px solid #ffffff;
-  outline-offset: -1px;
+  outline: 4px solid #ffffff;
+  outline-offset: -2px;
   cursor: pointer;
 }
 .card img {
@@ -272,11 +281,13 @@ span span{
   background-color: rgba(5, 5, 5, 0.7);
   box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
   height: 100px;
+  margin-top: 120px;
+  padding-bottom: 150px;
 }
 .card-info h3 {
-  padding-top: 15px;
+  padding-top: 30px;
   color: #ffffff;
-  font-size: small;
+  font-size: xx-large;
 }
 .card:hover .card-types {
   background-color: #ffffff;
@@ -295,7 +306,7 @@ span span{
   padding: 5px 10px;
   border-radius: 5px;
   color: white;
-  font-size: 7px;
+  font-size: medium;
   font-weight: bold;
 }
 
