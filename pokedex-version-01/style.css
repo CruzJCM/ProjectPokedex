@@ -165,8 +165,8 @@ body {
 /* Sección principal - Pokedex */
 .pokedex {
   flex: 1;
-  padding: 25px 100px;
-  margin-left: 120px;
+  padding: 25px 160px;
+  margin-left: 100px;
   margin-top: 50px;
   background-color: rgb(227, 173, 173);
   background-image: url(/pokedex-version-01/img/wallhaven-57eey1.png);
@@ -183,7 +183,7 @@ body {
 .card-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-  gap: 20px;
+  gap: 30px;
 }
 
 .card {
@@ -198,7 +198,8 @@ body {
   overflow: hidden; /* Para evitar que la imagen se salga de la tarjeta */
   position: relative;
   transition: transform 0.1s ease-in-out;
-  max-height: 170px;
+  height: 180px;
+  min-width: 150px;
 }
 .card:hover {
   transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
@@ -221,9 +222,10 @@ body {
 .card-info {
   background-color: rgba(5, 5, 5, 0.7);
   box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+  height: 100px;
 }
 .card-info h3 {
-  padding-top: 8px;
+  padding-top: 15px;
   color: #ffffff;
   font-size: small;
 }
@@ -234,7 +236,7 @@ body {
 }
 .card:hover .card-types {
   background-color: #ffffff; /* Cambiar color de fondo de los tipos */
-  padding-bottom: 11px; /* Superponer ligeramente con el .card-types */
+  padding-bottom: 111px; /* Superponer ligeramente con el .card-types */
 }
 
 .card-types {
@@ -249,7 +251,8 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   color: white;
-  font-size: x-small;
+  font-size: 7px;
+  font-weight: bold;
 }
 
 .type-fire {
