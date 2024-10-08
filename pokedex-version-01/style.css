@@ -83,6 +83,8 @@ body {
   background-color: #0f0e0e;
   color: white;
   font-family: "Poppins";
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 9;
 }
 .menu label {
   margin-bottom: 10px;
@@ -139,7 +141,7 @@ body {
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed; /* Fija la imagen al fondo, sin desplazarse */
   background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-  background-position:right; /* Centra la imagen en el contenedor */
+  background-position:left 60px center; /* Centra la imagen en el contenedor */
   font-family: "Rubik";
 }
 
