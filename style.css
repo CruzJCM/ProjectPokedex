@@ -129,7 +129,7 @@ span span{
 
 /* MENU */
 .menu {
-  width: 180px;
+  width: 204px;
   padding: 0 100px;
   padding-top: 30px;
   padding-bottom: 80px;
@@ -199,7 +199,7 @@ span span{
 .pokedex {
   flex: 1;
   padding: 50px 150px;
-  margin-left: 200px;
+  margin-left: 204px;
   margin-top: 84px;
   background-color: rgb(227, 173, 173);
   background-image: url(/img/wallhaven-57eey1.png);
