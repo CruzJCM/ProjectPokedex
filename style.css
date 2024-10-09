@@ -375,3 +375,18 @@ span span{
 .type-normal {
   background-color: #a4acaf;
 }
+
+
+@media only screen and (max-width: 1044px) {
+  .pokedex {
+    padding: 50px 90px;
+  }
+}
+@media only screen and (max-width: 924px) {
+  .pokedex {
+    padding: 50px 50px;
+  }
+  .logo img {
+    width: 0;
+  }
+}
