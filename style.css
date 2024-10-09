@@ -389,4 +389,15 @@ span span{
   .logo img {
     width: 0;
   }
+  .moving-message #message span{
+    width: 0;
+    margin: 0;
+  }
+  .moving-message{
+    width: 0;
+    margin: 0;
+  }
+  .header{
+    padding-left: 20px;
+  }
 }
