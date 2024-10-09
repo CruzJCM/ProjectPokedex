@@ -123,6 +123,7 @@ span span{
   display: flex;
   flex: 1;
   min-height: 100vh;
+  background-color: #0f0e0e;
 }
 
 
@@ -139,7 +140,6 @@ span span{
   background-color: #0f0e0e;
   color: white;
   font-family: "Poppins";
-  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
   z-index: 9;
 }
 .menu label {
@@ -219,7 +219,7 @@ span span{
 }
 
 .card {
-  position: relative; /* Para que los elementos con position: absolute se posicionen respecto a este contenedor */
+  position: relative;
   background-image: url(https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e);
   background-blend-mode: overlay;
   background-color: rgba(255, 255, 255, 0.2);
@@ -236,6 +236,10 @@ span span{
   max-width: 260px;
 }
 
+.card:hover{
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 .card-number {
   position: absolute;
   top: 30%;
@@ -243,62 +247,61 @@ span span{
   transform: translate(
     -50%,
     -50%
-  ); /* Centrar el número dentro del contenedor */
-  font-size: 90px; /* Tamaño grande para que sobresalga */
-  color: rgba(255, 255, 255, 0.6); /* Color blanco con transparencia */
+  );
+  font-size: 90px;
+  color: rgba(255, 255, 255, 0.6);
   font-weight: bold;
-  z-index: 1; /* Colocarlo detrás de la imagen */
-  pointer-events: none; /* Para que no interfiera con los eventos de la tarjeta */
+  z-index: 1;
+  pointer-events: none;
 }
 .card:hover .card-number {
   color: #e13535cc;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9); /* Delineado de 1px en negro */
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
 }
 .card:hover img {
   z-index: 0;
 }
 .card:hover {
   transform: scale(1.05);
-  outline: 4px solid #ffffff;
+  outline: 7px solid #ffffff;
   outline-offset: -2px;
   cursor: pointer;
 }
 .card img {
   position: absolute;
-  top: 30%; 
-  left: 52%;
+  top: 32%; 
+  left: 51.5%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 2;
   transition: transform 0.1s ease-in-out;
   width: 80%;
   height: auto;
-  max-height: 180px; /* Limitar la altura de la imagen */
+  max-height: 180px;
   object-fit: contain;
 }
 .card:hover img {
   transform: scale(1.15) translate(-42%, -45%);
 }
 .card:hover h3 {
-  background-color: #ffffff;
   color: #e13535;
   margin-bottom: -1px;
 }
 
 .card-info {
   background-color: rgba(5, 5, 5, 0.7);
-  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
-  height: 100px;
-  margin-top: 200px;
-  padding-bottom: 150px;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+  height: 40%;
+  margin-top: 215px;
+  display: grid;
+  place-content: center;
 }
 .card-info h3 {
-  padding-top: 30px;
   color: #ffffff;
-  font-size: xx-large;
+  font-size:180%;
 }
-.card:hover .card-types {
+.card:hover .card-info{
   background-color: #ffffff;
-  padding-bottom: 111px;
+  z-index: 9;
 }
 
 .card-types {
