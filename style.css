@@ -385,6 +385,7 @@ span span{
 @media only screen and (max-width: 924px) {
   .pokedex {
     padding: 50px 50px;
+    margin: 0;
   }
   .logo img {
     width: 0;
@@ -399,5 +400,15 @@ span span{
   }
   .header{
     padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .search input{
+    min-width: 0;
+    max-width: 200px;
+  }
+  .menu{
+    width: 0;
+    padding: 0;
   }
 }
