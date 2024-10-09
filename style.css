@@ -386,6 +386,7 @@ span span{
   .pokedex {
     padding: 50px 50px;
     margin: 0;
+    background-position: 0;
   }
   .logo img {
     width: 0;
